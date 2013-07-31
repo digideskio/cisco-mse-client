@@ -1,0 +1,16 @@
+# Ignore the _creds.rb spec file
+spec/_creds.rb
+
+# Ignore tempfiles
+*.sw[op]
+.DS_Store
+
+# RVM
+.rvmrc
+
+# Gems
+*.gem
+
+# IDEs
+.idea
+.project
