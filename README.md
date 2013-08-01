@@ -2,7 +2,7 @@
 
 
 ## Usage
-'''ruby
+```ruby
 client = Facebook::Client.create(
   :access_token => YOUR_USER_ACCESS_TOKEN
 )
@@ -10,16 +10,16 @@ user = client.people.me
 user = client.people.by_id(123)
 
 data = client.fql.query('SELECT name FROM user WHERE uid = me()')
-'''
+```
 
 
 ## Testing
 
 ### from your project
 In your spec_helper.rb, put this to prevent `facebook-client` from reaching out to Facebook's live servers. Instead, endpoints will return back [local stubbed data](lib/facebook-client/stub.rb).
-'''ruby
+```ruby
 Facebook::Client.stub!
-'''
+```
 
 ### the facebook-client gem
 * Copy spec/_creds.stub.rb to spec/_creds.rb
