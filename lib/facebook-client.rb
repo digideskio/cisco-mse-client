@@ -1,8 +1,11 @@
+# encoding: UTF-8
+
 require 'saddle'
 require 'saddle/middleware/authentication/oauth2'
 
 require 'facebook-client/exceptions'
 require 'facebook-client/middleware/exception_raiser'
+require 'facebook-client/stub'
 require 'facebook-client/version'
 
 
@@ -10,6 +13,7 @@ require 'facebook-client/version'
 module Facebook
 
   class Client < Saddle::Client
+    extend Facebook::Stub
 
     def self.host
       'graph.facebook.com'

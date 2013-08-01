@@ -1,3 +1,4 @@
+# encoding: UTF-8
 
 ##
 # Exceptions for using the Facebook client
