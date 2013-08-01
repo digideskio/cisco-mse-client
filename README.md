@@ -4,7 +4,7 @@
 ## Usage
 
     client = Facebook::Client.create(
-      :oauth2_access_token => YOUR_USER_ACCESS_TOKEN
+      :access_token => YOUR_USER_ACCESS_TOKEN
     )
     user = client.people.me
     user = client.people.by_id(123)
