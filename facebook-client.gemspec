@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
   s.executables   = s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
 
-  s.add_dependency 'saddle', '~> 0.0.38'
+  s.add_dependency 'saddle', '~> 0.0.41'
 end

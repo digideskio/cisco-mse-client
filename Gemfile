@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 #gem 'saddle', :path => '../saddle'
-gem 'saddle', '~> 0.0.38'
+gem 'saddle', '~> 0.0.41'
 
 group :test do
   gem 'rspec', '~> 2.14.1'
