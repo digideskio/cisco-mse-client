@@ -18,6 +18,51 @@ module Facebook
 
     # Test data for stubs to return
     module Data
+      LAST_NAMES = %w{
+        Smith
+        Johnson
+        Williams
+        Jones
+        Brown
+        Davis
+        Miller
+        Wilson
+        Moore
+        Taylor
+        Anderson
+        Thomas
+        Jackson
+        White
+        Harris
+        Martin
+        Thompson
+        Garcia
+        Martinez
+      }
+
+      FIRST_NAMES = %w{
+        Abigail
+        Aiden
+        Alexander
+        Ava
+        Elizabeth
+        Emily
+        Emma
+        Ethan
+        Isabella
+        Jacob
+        Jayden
+        Liam
+        Madison
+        Mason
+        Mia
+        Michael
+        Noah
+        Olivia
+        Sophia
+        William
+      }
+
       TEST_FQL_RESPONSE = [{}.freeze].freeze
 
       TEST_USER = {
@@ -136,6 +181,27 @@ module Facebook
         ],
         'verified' => true,
         'updated_time' => "2013-06-15T04:06:53+0000",
+        'devices' => [
+          {
+            "os" => "Android"
+          }
+        ],
+        # Generate an array of names and IDs.
+        'friends' => 100.times.map do
+          {
+            "name" => "#{FIRST_NAMES.sample} #{LAST_NAMES.sample}",
+            "id" => (rand * 10000).to_i,
+          }
+        end,
+        # Generate an array of random likes.
+        'likes' => 10.times.map do
+          {
+            "name" => "#{FIRST_NAMES.sample} #{LAST_NAMES.sample}",
+            "id" => (rand * 10000).to_i,
+            "category" => %w{Website Product Person Celebrity}.sample,
+            "updated_time" => rand((Time.now - 1.year)..Time.now).to_s,
+          }
+        end,
       }.freeze
     end
 
