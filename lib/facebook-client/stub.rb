@@ -10,17 +10,17 @@ module Facebook
 
     # Setup stubbing for all endpoints
     def stub!
-      Facebook::Endpoints::FQL.any_instance.stub(:query).and_return( Stub::Data::TEST_FQL_RESPONSE )
+      Facebook::Endpoints::FQL.any_instance.stub(:query).and_return( Stub::Data::FQL_RESPONSE )
 
-      Facebook::Endpoints::User.any_instance.stub(:me).and_return( Stub::Data::TEST_USER )
-      Facebook::Endpoints::User.any_instance.stub(:by_id).and_return( Stub::Data::TEST_USER )
+      Facebook::Endpoints::User.any_instance.stub(:me).and_return( Stub::Data::USER )
+      Facebook::Endpoints::User.any_instance.stub(:by_id).and_return( Stub::Data::USER )
     end
 
     # Test data for stubs to return
     module Data
-      TEST_FQL_RESPONSE = [{}.freeze].freeze
+      FQL_RESPONSE = [{}.freeze].freeze
 
-      TEST_USER = {
+      USER = {
         'id' => "1",
         'name' => "Squirrely BooBoo",
         'first_name' => "Squirrely",
