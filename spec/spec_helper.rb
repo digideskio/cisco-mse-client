@@ -1,11 +1,13 @@
 # encoding: UTF-8
 
-require 'facebook-client'
+require 'cisco-mse-client'
 
 
 # Load credentials from ENV if possible, or load from _creds.rb
-if ENV['TEST_ACCESS_TOKEN']
-  TEST_ACCESS_TOKEN = ENV['TEST_ACCESS_TOKEN']
+if ENV['TEST_USERNAME'] && ENV['TEST_PASSWORD']
+  TEST_HOSTNAME = ENV['TEST_HOSTNAME']
+  TEST_USERNAME = ENV['TEST_USERNAME']
+  TEST_PASSWORD = ENV['TEST_PASSWORD']
 else
   begin
     require '_creds'

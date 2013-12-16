@@ -7,6 +7,8 @@ spec/_creds.rb
 
 # RVM
 .rvmrc
+.ruby-gemset
+.ruby-version
 
 # Gems
 *.gem

@@ -4,25 +4,17 @@ require 'spec_helper'
 
 
 
-describe Facebook::Stub do
+describe CiscoMSE::Stub do
   context 'can stub out calls' do
 
     before :each do
-      Facebook::Client.stub!
-      @client = Facebook::Client.create
+      CiscoMSE::Client.stub!
+      @client = CiscoMSE::Client.create
     end
 
     describe 'and return test data' do
-      it 'for client.user.me' do
-        @client.user.me.should == Facebook::Stub::Data::USER
-      end
-
-      it 'for client.user.by_id' do
-        @client.user.by_id(123).should == Facebook::Stub::Data::USER
-      end
-
-      it 'for client.fql.query' do
-        @client.fql.query('test').should == Facebook::Stub::Data::FQL_RESPONSE
+      it 'for location.clients' do
+        @client.location.clients('test').should == CiscoMSE::Stub::Data::Location::CLIENTS
       end
     end
 
