@@ -20,16 +20,20 @@ module CiscoMSE
         begin
           @app.call(env)
         rescue Faraday::Error::ClientError => e
-          exception =
-            case e.response[:status]
-            when 404
-              CiscoMSE::NotFoundError
-            when 500
-              CiscoMSE::ServiceError
-            else
-              CiscoMSE::GenericException
-            end
-          raise exception, e.response
+          if e.response
+            exception =
+              case e.response[:status]
+              when 404
+                CiscoMSE::NotFoundError
+              when 500
+                CiscoMSE::ServiceError
+              else
+                CiscoMSE::GenericException
+              end
+            raise exception, e.response
+          else
+            raise CiscoMSE::GenericException, e
+          end
         rescue Saddle::TimeoutError => e
           raise CiscoMSE::TimeoutError, e.response
         end

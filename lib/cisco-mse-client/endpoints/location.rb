@@ -11,7 +11,7 @@ module CiscoMSE
 
       def clients(_id, opts = {})
         begin
-          get("clients/#{_id}", opts)['WirelessClientLocation']
+          get("clients/#{_id}", opts)
         rescue CiscoMSE::NotFoundError => e
           nil
         end
